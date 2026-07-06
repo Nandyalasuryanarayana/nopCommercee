@@ -8,6 +8,8 @@ on:
   pull_request:
      branches: 
           - feature
+  schedule:
+    - cron: "24 12 * * *" #runs at 12.24 automate
     
 permissions:
   contents: read
