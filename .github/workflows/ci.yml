@@ -6,7 +6,7 @@ on:
           - main
           - feature
   pull_request:
-     branches:
+     branches: 
           - feature
     
 permissions:
@@ -14,22 +14,25 @@ permissions:
 
 jobs:
    job1:
-      runs-on: ubuntu:latest
+      runs-on: ubuntu-24.04
       steps:
-         - uses: actions/checkout@v6
+         - uses: actions/checkout@v4
          
          - name: setup dotnet environment
            uses: actions/setup-dotnet@v5
+           with:
+              dotnet-version: 10.0
 
          - name: download dependencies
-           run : dotnet restore
-          
-         - name: test the project
-           run : dotnet test
-
+           run: dotnet restore
+        
          - name: compile code
-           run: dotnet build  | echo "Pipeline successfull"
+           run: dotnet build  && echo "Pipeline successfull"
                                
+         - name: test the project
+           run: dotnet test
+
+        
          
     
           
