@@ -1,0 +1,38 @@
+name: nopcommerce-practise-workflow
+
+on: 
+  push:
+     branches:
+          - main
+          - feature
+  pull_request:
+     branches:
+          - feature
+    
+permissions:
+  contents: read
+
+jobs:
+   job1:
+      runs-on: ubuntu:latest
+      steps:
+         - uses: actions/checkout@v6
+         
+         - name: setup dotnet environment
+           uses: actions/setup-dotnet@v5
+
+         - name: download dependencies
+           run : dotnet restore
+          
+         - name: test the project
+           run : dotnet test
+
+         - name: compile code
+           run: dotnet build  | echo "Pipeline successfull"
+                               
+         
+    
+          
+
+      
+  
