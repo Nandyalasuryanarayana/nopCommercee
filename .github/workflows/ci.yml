@@ -38,7 +38,7 @@ jobs:
            uses: actions/upload-artifact@v4
            with:
             name: initiall-artifact 
-            path: ./src/Tests/Nop.tests
+            path: ./src/Tests/Nop.Tests/bin/Debug/net10.0/Nop.Tests.dll
 
    
 
