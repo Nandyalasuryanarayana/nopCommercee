@@ -39,6 +39,10 @@ jobs:
            with:
             name: initiall-artifact 
             path: ./src/Tests/Nop.Tests/bin/Debug/net10.0/Nop.Tests.dll
+        
+         - name: Build Docker image
+           run: docker build -t dotnet:1 .
+          
 
    
 
