@@ -2,7 +2,7 @@ from mcr.microsoft.com/dotnet/nightly/sdk:10.0-alpine3.24-amd64 AS build
 
 copy ./src/NopCommerce.sln ./
 
-run dotnet restore ./NopCommerce.sln
+run dotnet restore ./
 
 workdir /app
 
