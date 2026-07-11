@@ -4,6 +4,8 @@ workdir /src
 copy ./src/NopCommerce.sln ./
 copy ./src/Presentation/Nop.Web/Nop.Web.csproj ./Presentation/Nop.Web/Nop.Web.csproj
 
+#install dependencies
+
 run dotnet restore ./NopCommerce.sln
 
 workdir /app
