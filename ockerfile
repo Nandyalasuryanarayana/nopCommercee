@@ -2,9 +2,9 @@ from mcr.microsoft.com/dotnet/nightly/sdk:10.0-alpine3.24-amd64 AS build
 
 workdir /src
 copy ./src/NopCommerce.sln ./
-copy ./src/Presentation/Nop.Web/Nop.Web.csproj ./src/Presentation/Nop.Web/Nop.web.csproj
+copy ./src/Presentation/Nop.Web/Nop.Web.csproj ./Presentation/Nop.Web/Nop.Web.csproj
 
-run dotnet restore ./src/NopCommerce.sln
+run dotnet restore ./NopCommerce.sln
 
 workdir /app
 
