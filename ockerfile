@@ -1,3 +1,3 @@
-from alpine-baselayout:3.7.2-r1
+from .NET 10.x SDK:3.7.2-r1
 
 copy ./src/Presentation/package.json ./
