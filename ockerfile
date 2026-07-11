@@ -1,2 +1,2 @@
 from mcr.microsoft.com/dotnet/nightly/sdk:10.0-alpine3.24-amd64 AS build
-copy ./src/Presentation/Nop.web/package.json ./
+copy ./src/Presentation/Nop.Web/package.json ./
