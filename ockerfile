@@ -1,3 +1,5 @@
+#Build stage
+
 FROM mcr.microsoft.com/dotnet/nightly/sdk:10.0-alpine3.24-amd64 AS build
 
 WORKDIR /src
@@ -18,7 +20,7 @@ WORKDIR /src/Presentation/Nop.Web/
 
 RUN dotnet publish Nop.Web.csproj -c Release -o /app/publish
 
-#ru-time stage
+#final-stage
 
 FROM mcr.microsoft.com/dotnet/aspnet:9.0-alpine3.24
 
@@ -28,4 +30,4 @@ COPY --from=build /app/publish  .
 
 EXPOSE 8080
 
-CMD ["dotnet", "Nop.Web"]
+CMD ["dotnet", "Nop.Web.csproj"]
