@@ -10,11 +10,11 @@ RUN dotnet restore ./NopCommerce.sln
 
 #build project
 
-RUN dotnet build ./NopCommerce.sln -c Realese
+RUN dotnet build ./NopCommerce.sln -c Release
 
 #publish project to a folder
 
 WORKDIR /src/Presentation/Nop.Web/
 
-RUN dotnet publish Nop.Web.csproj -c Realese -o /app/publish
+RUN dotnet publish Nop.Web.csproj -c Release -o /app/publish
 
