@@ -18,3 +18,14 @@ WORKDIR /src/Presentation/Nop.Web/
 
 RUN dotnet publish Nop.Web.csproj -c Release -o /app/publish
 
+#ru-time stage
+
+FROM mcr.microsoft.com/dotnet/framework/runtime:4.8-20260512-windowsservercore-ltsc2016 
+
+WORKDIR /app
+
+COPY --from=build /app/publish  .
+
+EXPOSE 8080
+
+CMD ["dotnet", "Nop.Web"]
