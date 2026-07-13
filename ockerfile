@@ -1,12 +1,18 @@
-from mcr.microsoft.com/dotnet/nightly/sdk:10.0-alpine3.24-amd64 AS build
+FROM mcr.microsoft.com/dotnet/nightly/sdk:10.0-alpine3.24-amd64 AS build
 
-workdir /src
-copy ./src/NopCommerce.sln ./
-copy ./src/ ./
+WORKDIR /src
+COPY ./src/NopCommerce.sln ./
+COPY ./src/ ./
 
 #install dependencies
 
-run dotnet restore ./NopCommerce.sln
+RUN dotnet restore ./NopCommerce.sln
 
-workdir /app
+#build project
+
+RUN dotnet build ./NopCommerce.sln 
+
+#publish project to a folder
+
+RUN dotnet publish -c /app/Nop.Web.csproj
 
